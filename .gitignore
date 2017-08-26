@@ -1,0 +1,6 @@
+node_modules/
+variables.env
+public/dist/App.bundle.js
+public/dist/App.bundle.js.map
+public/dist/style.css
+style.css.map
