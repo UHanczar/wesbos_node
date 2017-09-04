@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 mongoose.Promise = global.Promise;
 const slug = require('slugs');
 
@@ -17,11 +18,11 @@ const storeSchema = new mongoose.Schema({
 });
 
 storeSchema.pre('save', function (next) {
-  if (this.isModified('name')) {
+  if (!this.isModified('name')) {
     next(); // skip it
     return; // storp this function
   }
-  
+
   this.slug = slug(this.name);
   next();
   // later make it more resilient, so it has unique keys
